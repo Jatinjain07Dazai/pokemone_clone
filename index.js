@@ -9,7 +9,7 @@ const enemy = document.querySelector('#u #hp')
 const glow = document.querySelectorAll('.glow-ball')
 const tile = document.querySelectorAll('.tile')
 const con = document.querySelector('#container')
-const hb = document.querySelector('#hyper_beam')
+const hb = document.querySelector('#wrap div')
 console.log(glow)
 glow.forEach(g =>{
 	r = Math.floor(Math.random() * 30)
@@ -67,16 +67,30 @@ const offset = {
 }
 
 function hyper(){
+hb.classList.remove('hydro_pump')
+hb.classList.add('hyper_beam')
 setTimeout(() => {
 hb.classList.add('hyper_beams')
 },500)
-
 setTimeout(() => {
 hb.classList.remove('hyper_beams')
 n -= 40
 },3000)
-
 }
+
+
+function hydro(){
+hb.classList.remove('hyper_beam')
+hb.classList.add('hydro_pump')
+setTimeout(() => {
+hb.classList.add('hydro_pumps')
+},500)
+setTimeout(() => {
+hb.classList.remove('hydro_pumps')
+n -= 5
+},3000)
+}
+
 
 /*     Sprite creation         */
 
@@ -300,7 +314,6 @@ function Banimate(){
 		if(k===0){
 			n -= 20
 		}
-		enemy.style.width = n + '%'
 	}
 	main.style.opacity = 1
 	main.style.pointerEvents = 'initial'

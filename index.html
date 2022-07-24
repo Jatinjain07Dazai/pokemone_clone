@@ -79,7 +79,7 @@
 		
 	}
 
-	#hyper_beam{
+	.hyper_beam{
 		border-top: 8px solid #fcfcfc;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px ;
@@ -100,15 +100,15 @@
 
 /*        Hydro Pump ray                   */
 	
-	#hydro_pump{
+	.hydro_pump{
 		border-top: 8px solid #fcfcfc;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px ;
 		position: absolute;
+		background: radial-gradient(#E3FAFF, #A7D0EA, #B2D8EE, #C9E9F5);
+		transform: scale(1, 0);
 		width: inherit;
 		height: inherit;
-		background: radial-gradient(#FF6200, #FD7F2C, #FD9346, #FDA766, #FDB777);
-		transform: scale(1, 0);
 		transform-origin: top;
 		-webkit-transition: transform 1.8s linear
 	}
@@ -169,7 +169,7 @@
 <div id="choice-pad" style="position: absolute; top:488px; left:8px; background:#fff; height: 160px; width:1024px; opacity:1; display: none;">
 	<table style="width: inherit; height:inherit;">
 	<td>
-		<tr><button style=" height:50%; width:50%; border-color:lightskyblue ; color:lightskyblue ; font-size: 2rem; font-weight: bold;">Hydro Pump</button></tr>
+		<tr><button style=" height:50%; width:50%; border-color:lightskyblue ; color:lightskyblue ; font-size: 2rem; font-weight: bold;" onclick="hydro();">Hydro Pump</button></tr>
 		<tr><button style=" height:50%; width:50%; border-color:orange ; color:orange; font-size: 2rem; font-weight: bold;" onclick="hyper();">Hyper Beam</button></tr>
 	</td>
 	<td>
@@ -196,7 +196,7 @@
 </div>
 
 <div id='wrap'>
-<div id="hyper_beam"></div>
+<div></div>
 </div>
 
 
