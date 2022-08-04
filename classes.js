@@ -1,5 +1,5 @@
 class Sprite{
-	constructor({coordinate, image, crop, frame, x=10, animate=false}){
+	constructor({coordinate, image, crop, frame, x=10, animate=false, health=80}){
 		this.coordinate = coordinate
 		this.image = image
 		this.crop = crop
@@ -11,8 +11,8 @@ class Sprite{
 		this.motion = false	
 		this.x = x
 		this.animate = animate
+		this.health = health
 	}
-
 
 	draw(){
 		c.drawImage(this.image,
@@ -35,11 +35,29 @@ class Sprite{
 	}
 	this.frame.elapsed++;
 	}
+	}
 
-	if(this.animate){
-		this.coordinate.x += 4
-		this.coordinate.y -= 2
-		if(this.coordinate.x > 820){
+	fire_attack(){
+		c.drawImage(this.image,
+		this.frame.val * this.width,
+		0,
+		this.image.width / this.crop,
+		this.image.height,
+	 	this.coordinate.x,
+	 	this.coordinate.y,
+	 	this.image.width / this.crop,
+	 	this.image.height);
+		this.coordinate.x += 8
+		this.coordinate.y -= 4
+		if(this.frame.elapsed % this.x === 0){
+		if(this.frame.val < this.crop - 1){
+			this.frame.val++;
+		}
+		else
+			this.frame.val = 0;
+	}
+	this.frame.elapsed++;
+	if(this.coordinate.x > 820){
 			this.animate = false
 			this.coordinate = {
 		x: canvas.width/2 - canvas.width/6 -10,
@@ -49,8 +67,10 @@ class Sprite{
 		}
 	}
 
+
 }
-}
+
+
 
 class boundary{
 	static height = 48
